@@ -31,16 +31,14 @@ public class AuthController : ControllerBase
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginRequest request)
     {
-        // 1. Find the user in SQLite
         var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == request.Username);
 
-        // 2. Check password (We are using plain text for now, we will hash it next)
-        if (user == null || user.PasswordHash != request.Password)
+        // BCrypt.Verify handles the salt embedded in the stored hash
+        if (user == null || !BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash))
         {
             return Unauthorized("Invalid username or password.");
         }
 
-        // 3. Generate JWT Token
         var jwtKey = _config["Jwt:Key"] ?? throw new Exception("JWT Key missing");
         var jwtIssuer = _config["Jwt:Issuer"] ?? "DevFolio";
         
