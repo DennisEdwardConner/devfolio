@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DevFolio.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20261026201926_InitialCreate")]
+    [Migration("20261111012149_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -76,7 +76,7 @@ namespace DevFolio.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            PasswordHash = "admin123",
+                            PasswordHash = "$2a$11$4fPY7TGdNWkg4WsB4urB3eQUK3zld88tiY316oJnt6P2qJT.QNOI.",
                             Username = "admin"
                         });
                 });

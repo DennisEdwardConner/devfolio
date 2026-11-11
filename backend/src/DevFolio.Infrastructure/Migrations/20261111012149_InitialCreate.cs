@@ -46,7 +46,7 @@ namespace DevFolio.Infrastructure.Migrations
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "PasswordHash", "Username" },
-                values: new object[] { 1, "admin123", "admin" });
+                values: new object[] { 1, "$2a$11$4fPY7TGdNWkg4WsB4urB3eQUK3zld88tiY316oJnt6P2qJT.QNOI.", "admin" });
         }
 
         /// <inheritdoc />

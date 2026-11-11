@@ -73,7 +73,7 @@ namespace DevFolio.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            PasswordHash = "admin123",
+                            PasswordHash = "$2a$11$4fPY7TGdNWkg4WsB4urB3eQUK3zld88tiY316oJnt6P2qJT.QNOI.",
                             Username = "admin"
                         });
                 });
